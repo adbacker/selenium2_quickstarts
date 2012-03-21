@@ -1,2 +1,17 @@
-nerddinner code downloaded from http://nerddinner.codeplex.com/ 
--- modified slightly to remove calls to external sites (bing maps, google analytics) to make running w/o external networks easier
+Boise Code Camp 2012 - selenium 2 intro session
+sample code
+aaron backer
+
+
+Project usess Scott Hansleman's nerd dinner app as a conveniant automation target
+
+Easiest way to get it going: (assuming a windows host)
+
+Download Microsoft Matrix - http://www.microsoft.com/web/webmatrix/ & install
+Download latest version of nerddinner from http://nerddinner.codeplex.com/ & decompress
+run MS Matrix, point it at the decompressed nerddinner directory & start.
+->check the server name and port# nerd dinner is running on
+->visit your tame nerd dinner site and verify things are working as expected
+Modify the selenium code in the Browser class to point at your local (verified working) nerd dinner site
+
+(note that to use selenium 2 grid, you'll need to set up that infrastructure separately)
