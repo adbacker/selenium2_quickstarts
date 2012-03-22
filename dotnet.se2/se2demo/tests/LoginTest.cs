@@ -7,6 +7,7 @@ using NUnit.MultiCore.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using se2demo.action;
 using se2demo.site;
 
 namespace se2demo.tests
@@ -60,20 +61,25 @@ namespace se2demo.tests
         //test has to know *how* to do stuff...which means *all* tests have to know how to do the 
         //same things...(eg, have to write out the "login" functionality multiple times
         [Test]
-        public void TestLogin()
+        public void TestLoginRefactor2()
         {
             var username = "test002";
             var password = "pass002";
 
-            MainPage.NavTo();
+            var mainPage = new MainPage(browser);
+            var loginPage = new LoginPage(browser);
 
-            MainPage.LogOnLink().Click();
+            mainPage.NavTo();
 
-            LoginPage.txtUserName().SendKeys(username);
-            LoginPage.txtPasswordEntry().SendKeys(password);
-            LoginPage.logOnButton().Click();
+            mainPage.linkLogOn().Click();
+            loginPage.txtUsername().SendKeys(username);
+            loginPage.txtPassword().SendKeys(password);
+            loginPage.btnLogOn().Click();
 
-            string foundUser = MainPage.LoggedInUser();
+            string foundUser = mainPage.strWelcomeUserText().Text;
+
+            var loginSuccess = username.Equals(foundUser);
+            Assert.True(loginSuccess);
 
             Assert.IsTrue(username.Equals(foundUser),"expected user name didn't match found");
 
@@ -83,31 +89,39 @@ namespace se2demo.tests
 
 
         #region pageObject login test (refactor 3)
+
         [Test]
         public void TestLoginPageObject()
         {
             var username = "test002";
             var password = "pass002";
+            var loginAction = new LoginAction(browser, username, password);
 
-            var loginSuccess = MainPage.LogIn(username, password);     
-            Assert.True(loginSuccess);
+            var loginSuccess = loginAction.Execute(true);
 
-
-            //string foundUser = MainPage.LoggedInUser();
-            //Assert.IsTrue(username.Equals(foundUser));      
+            Assert.True(loginSuccess, "expected user name didn't match found");
         }
 
+
         [Test]
-        public void TestBadLoginPageObject()
+        public void TestBadPasswordLoginFail()
         {
             var username = "test002";
             var password = "badpassword";
+            var loginAction = new LoginAction(browser, username, password);
+            
+            var loginSuccess = loginAction.Execute(true);
 
-            var loginSuccess = MainPage.LogIn(username, password);
-            Assert.False(loginSuccess);
-            var foundBadPasswordError = LoginPage.logOnErrorBadUsernameOrPasswordMessage();
+            Assert.False(loginSuccess, "user shows as logged in with bad password");
+            
+            //(this is why we made the page objects available in the action...)
+            var foundBadPasswordError = loginAction.LoginPage.logOnErrorBadUsernameOrPassword();
+            
+            //first make sure the returned element isn't null before we try and retrieve the text
             Assert.NotNull(foundBadPasswordError);
-            Assert.True(LoginPage.expectedBadUsernameOrPasswordText().Equals(foundBadPasswordError),"Bad password error did not match expected");
+
+            Assert.True(loginAction.LoginPage.expectedBadUsernameOrPasswordText().Equals(foundBadPasswordError.Text),
+                "Bad password error did not match expected");
         }
 
         #endregion pageObject login test (refactor 3)

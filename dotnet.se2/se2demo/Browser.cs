@@ -7,7 +7,9 @@ using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.Events;
 using se2demo.Util;
 using se2demo.site;
 
@@ -15,21 +17,26 @@ namespace se2demo
 {
     public sealed class Browser
     {
-        private static readonly Browser instance = new Browser();
         private IWebDriver driver;
         private static string testLogLocation = @"c:\\working\\testlog";
 
-        private Browser()
+        public Browser()
         {
-            
+            Driver = getNewDriver();
         }
 
-        private static IWebDriver getNewDriver()
-        {
-            IWebDriver driver = new FirefoxDriver();
-            //driver = new ChromeDriver();
-           // var driver = new RemoteWebDriver(new Uri("http://abacker:4445/wd/hub"), DesiredCapabilities.Firefox());
 
+
+        private IWebDriver getNewDriver()
+        {
+            //driver = new FirefoxDriver();
+            //driver = new InternetExplorerDriver(@"c:\grid2");
+            driver = new ChromeDriver(@"c:\grid2");
+
+
+            //var capabilities = DesiredCapabilities.HtmlUnitWithJavaScript();
+            //var capabilities = DesiredCapabilities.Chrome();
+            //driver = new RemoteWebDriver(new Uri("http://localhost:4445/wd/hub"), capabilities);
 
             #region tuning the driver
             //set the driver to implicitly wait for 30 seconds before throwing an "I can't find it!"
@@ -39,23 +46,14 @@ namespace se2demo
             return driver;
         }
 
-        public static Browser Instance
-        {
-            get
-            {   
-                if (instance.driver == null)
-                {
-                    instance.driver = getNewDriver();
-                }
-                return instance; 
-            }
-        }
+        public IWebDriver Driver { get; protected set; }
 
-        public static IWebElement Element(By elementFindBy)
+
+        public IWebElement Element(By elementFindBy)
         {
             try
             {
-                var el = Instance.driver.FindElement(elementFindBy);
+                var el = Driver.FindElement(elementFindBy);
                 return el;    
             }
             catch (NoSuchElementException e)
@@ -65,32 +63,31 @@ namespace se2demo
             return null;
         }
 
-        public static IWebDriver Driver()
+        public void Go(string url)
         {
-            return Instance.driver;
+            Driver.Url = url;
+            Driver.Navigate();
+        }
+
+        public void Quit()
+        {
+            Driver.Quit();
         }
 
 
-        public static void Go(string url)
+        public void ScreenShot(string name)
         {
-            Instance.driver.Url = url;
-            Instance.driver.Navigate();
-        }
+            //some drivers don't support taking screenshots - eg, htmlUnit
 
-        public static void Quit()
-        {
-            Instance.driver.Quit();
-            Instance.driver = null;
-        }
+            Screenshot ss = ((ITakesScreenshot) Driver).GetScreenshot();
+            
+            //Useful versions for passing it via web services//
+            string screenshot = ss.AsBase64EncodedString; 
+            byte[] screenshotAsByteArray = ss.AsByteArray;
 
-        public static void ScreenShot(string name)
-        {
-            Screenshot ss = ((ITakesScreenshot) Driver()).GetScreenshot();
-            //Use it as you want now
-            //string screenshot = ss.AsBase64EncodedString;
-            //byte[] screenshotAsByteArray = ss.AsByteArray;
             String fileDestinatin = Path.Combine(testLogLocation.SafePathName(), name.SafeFileName());
             ss.SaveAsFile(fileDestinatin, ImageFormat.Png); //use any of the built in image formating
+            
             //ss.ToString();//same as string screenshot = ss.AsBase64EncodedString;
             
         }

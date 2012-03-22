@@ -12,6 +12,8 @@ namespace se2demo.tests
     [TestFixture]
     public class BaseTest
     {
+        protected Browser browser;
+        
         public BaseTest()
         {
 
@@ -20,7 +22,7 @@ namespace se2demo.tests
         [SetUp]
         public void Init()
         {
-
+            browser = new Browser();
         }
 
         [TearDown]
@@ -31,7 +33,7 @@ namespace se2demo.tests
             //Browser.ScreenShot(TestContext.CurrentContext.Test.Name + DateTime.Now + ".png");
             #endregion //extraToppingsWithSprinkles
 
-            Browser.Quit();
+            browser.Quit();
         }
 
     }
