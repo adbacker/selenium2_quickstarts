@@ -25,6 +25,7 @@ namespace se2.dotnet.minimal
 
                 driver.Url = "http://abacker:2000";         
                 driver.Navigate();
+
                 var loginLink = driver.FindElement(By.LinkText("Log On"));
                 Assert.IsNotNull(loginLink);
 

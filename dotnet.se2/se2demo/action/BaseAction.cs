@@ -13,7 +13,7 @@ namespace se2demo.action
         {
             this.browser = browser;
         }
-        
+
         public abstract bool Execute(bool verify = false);
 
     }

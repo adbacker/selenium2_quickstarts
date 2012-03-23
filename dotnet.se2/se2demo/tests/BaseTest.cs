@@ -30,7 +30,7 @@ namespace se2demo.tests
         {
             #region extraToppingsWithSprinkles
 
-            //Browser.ScreenShot(TestContext.CurrentContext.Test.Name + DateTime.Now + ".png");
+            browser.ScreenShot("final");
             #endregion //extraToppingsWithSprinkles
 
             browser.Quit();

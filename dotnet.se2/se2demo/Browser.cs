@@ -4,12 +4,14 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.Events;
+using log4net;
 using se2demo.Util;
 using se2demo.site;
 
@@ -20,11 +22,12 @@ namespace se2demo
         private IWebDriver driver;
         private static string testLogLocation = @"c:\\working\\testlog";
 
+        private static ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Browser()
         {
             Driver = getNewDriver();
         }
-
 
 
         private IWebDriver getNewDriver()
@@ -58,7 +61,7 @@ namespace se2demo
             }
             catch (NoSuchElementException e)
             {
-                //log.Debug("went looking for element X.  Didn't find it.");
+                _log.Debug("went looking for element X.  Didn't find it.");
             }
             return null;
         }
@@ -74,10 +77,13 @@ namespace se2demo
             Driver.Quit();
         }
 
+        #region extra toppings with sugar on top (eg: debugging)
 
-        public void ScreenShot(string name)
+        public void ScreenShot(string message)
         {
             //some drivers don't support taking screenshots - eg, htmlUnit
+
+            string name = TestContext.CurrentContext.Test.Name + "_" + message + "_" + DateTime.Now + "." + DateTime.Now.Millisecond + ".png";
 
             Screenshot ss = ((ITakesScreenshot) Driver).GetScreenshot();
             
@@ -89,7 +95,14 @@ namespace se2demo
             ss.SaveAsFile(fileDestinatin, ImageFormat.Png); //use any of the built in image formating
             
             //ss.ToString();//same as string screenshot = ss.AsBase64EncodedString;
-            
+
         }
+
+        public void ScreenShot()
+        {
+            this.ScreenShot("step");
+        }
+
+        #endregion //extra toppings with sugar on top (eg: debugging)
     }
 }
