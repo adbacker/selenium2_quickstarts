@@ -25,10 +25,14 @@ nerd dinner example web app: http://nerddinner.codeplex.com/
 
 ms webmatrix (for running nerd dinner) : http://www.microsoft.com/web/webmatrix/
 
+virtualization solution used locally - oracle virtualbox (https://www.virtualbox.org/)
+free!
+available for mac, windows, linux
+free!
+works good, too...
 
-
-me!!!
-
+(me)
+aaron backer
 aaron dhot backer aht gmail dhot com
 
 *******************************************
