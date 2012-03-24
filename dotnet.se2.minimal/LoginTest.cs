@@ -21,12 +21,15 @@ namespace se2.dotnet.minimal
 
                 //chromedriver needs chromedriver.exe ... parameter is the PATH
                 //to wherever the .exe is...
-                //driver = new ChromeDriver (@"c:\grid2") {Url = MainPage.Url};
 
+                //driver = new ChromeDriver(@"c:\grid2") { Url = new Url("http://abacker:2000") };
                 driver.Url = "http://abacker:2000";         
+                
+            
                 driver.Navigate();
 
                 var loginLink = driver.FindElement(By.LinkText("Log On"));
+
                 Assert.IsNotNull(loginLink);
 
                 loginLink.Click();
@@ -43,8 +46,10 @@ namespace se2.dotnet.minimal
                 passwordEntry.SendKeys("pass002");
                 logOnButton.Click();
 
-                var welcomeUser = driver.FindElement(By.XPath("//div[@id='logindisplay']/b")).Text;
-                Assert.IsTrue(welcomeUser.Equals("test002"));
+                var welcomeUser = driver.FindElement(By.XPath("//div[@id='logindisplay']/b"));
+                Assert.NotNull(welcomeUser,"welcome user element not found");    
+                var foundUser = welcomeUser.Text;
+                Assert.IsTrue(foundUser.Equals("test001"));
 
                 driver.Close();
         }

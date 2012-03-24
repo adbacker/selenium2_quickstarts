@@ -76,12 +76,13 @@ namespace se2demo.tests
             loginPage.txtPassword().SendKeys(password);
             loginPage.btnLogOn().Click();
 
-            string foundUser = mainPage.strWelcomeUserText().Text;
+            //string foundUser = mainPage.strWelcomeUserText().Text;
+            string foundUser = mainPage.LoggedInUser();
 
             var loginSuccess = username.Equals(foundUser);
             Assert.True(loginSuccess);
 
-            Assert.IsTrue(username.Equals(foundUser),"expected user name didn't match found");
+            //Assert.IsTrue(username.Equals(foundUser),"expected user name didn't match found");
 
         }
 
@@ -120,7 +121,9 @@ namespace se2demo.tests
             //first make sure the returned element isn't null before we try and retrieve the text
             Assert.NotNull(foundBadPasswordError);
 
-            Assert.True(loginAction.LoginPage.expectedBadUsernameOrPasswordText().Equals(foundBadPasswordError.Text),
+            var expectedBadMsg = loginAction.LoginPage.expectedBadUsernameOrPasswordText();
+
+            Assert.True(expectedBadMsg.Equals(foundBadPasswordError.Text),
                 "Bad password error did not match expected");
         }
 

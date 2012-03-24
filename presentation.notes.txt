@@ -1,0 +1,511 @@
+
+All the link info at the top...
+
+This session - demo source + these notes:
+https://github.com/adbacker/selenium2_quickstarts
+
+
+
+Tools:
+
+http://seleniumhq.org/ - gui automation framework
+
+http://seleniumhq.org/docs/03_webdriver.html
+
+can drive chrome, firefox, IE and (yes, hold yourself down) OPERA!!
+(as well as android, iphone)
+
+selenium grid 2 http://code.google.com/p/selenium/wiki/Grid2
+
+chrome driver location (chromedriver.exe, required to test chrome via grid) http://code.google.com/p/selenium/wiki/ChromeDriver
+
+Firebug for Firefox ( http://getfirebug.com )
+
+nerd dinner example web app: http://nerddinner.codeplex.com/ 
+
+ms webmatrix (for running nerd dinner) : http://www.microsoft.com/web/webmatrix/
+
+
+
+me!!!
+
+aaron dhot backer aht gmail dhot com
+
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+check: external network connectivity?  even for nodes?
+
+right before session:
+evernote
+visual studio
+intellij
+recorder
+stopwatch (?)
+
+
+start vms & looping automation running
+4 remote consoles, mvn parallel tests
+
+
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+What was *that?!*
+
+
+what is selenium
+http://seleniumhq.org/ - gui automation framework
+
+(similar to watin, kinda similar to quick test pro)
+(not very similar to jmeter, openSTA, or LoadRunner)
+
+http://seleniumhq.org/docs/03_webdriver.html
+can drive chrome, firefox, IE and (yes, hold yourself down) OPERA!!
+
+also drivers for iphone, android, other devices (both simulators and real physical devices)
+
+
+client languages develop-able in: java, c#, ruby, python, perl, php!
+
+
+
+4m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+who are *you*?
+->devs?
+->qa automation/sdets?
+->primarily qa manual?
+->other? (managers? 
+
+java?  c#?  other?
+
+how many have used selenium before?
+another automated test tool?
+
+visualtest
+loadrunner
+opensta
+
+
+Gauge interest in..."how many here for:"
+selenium 101?
+grid?
+selenium with continuous integration?
+
+
+10m*****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+
+who I am
+bb.com automation, tools development
+
+helped design and implement automation infrastructure
+we run 3-400 tests covering use of site features, product ordering
+takes around 45m on a good day with grid ... 4h+ on a single box
+
+
+
+11m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+
+"when you leave this session you'll know..."
+how to get/set up selenium in C# (java very similar)
+how to write a basic test using nunit
+=> identify elements
+=> interact with elements
+=> verify test success/failure
+=> some general "good ideas" in test design (page object pattern)
+
+=> how to set up a basic selenium 2 grid
+=> how to modify your tests to run against the se2 grid
+
+
+
+yes, you can! (set up a basic test, start automating without
+
+record/playback...)
+
+
+
+13m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+The auditors interrupt this presentation with a very important
+message...
+
+automation development is DEVELOPMENT!!!
+Subject to the same rules, time lines, and pitfalls.
+
+use source control!
+control feature creep!
+there WILL be bugs!
+
+
+15m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+Basic test:
+
+nerddinner 2 site
+log in with a valid user
+validate shows logged in message
+
+[demo manual workflow]
+
+Let's get coding....
+
+
+16m*****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+New c# *class* project
+Add se2 via nuget (http://nuget.org/)  
+->se2 web driver, not the older "selenium r/c"
+Add nunit via nuget
+
+
+new c# file, name it "xxxTest.cs"
+
+
+
+20m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+How we gonna do it?
+
+Break it down
+http://bit.ly/Af6byp
+
+in a test's simplest form...
+
+Step 1 - GO!
+Step 2 - CLICK!  (type in, hover over, interact with)
+Step 3 - LOOK!  (get info back from page)
+
+Use your favorite web developer toolkit to find elements
+(firebug highly recommended - http://getfirebug.com )
+
+
+
+22m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+Step 1 - GO!...
+
+new up your driver..
+
+se2 navigation:
+
+//java version
+Browser.driver.get(url goz here) 
+
+
+// dot net version
+driver.Url = "http://where.you.be.goin.com/";
+driver.Navigate;
+
+//our sample code..
+driver.Url = "http://abacker:2000"
+driver.Navigate
+
+
+26m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+Step 2 - FIND!
+"reach out and touch some DOM (elements)"
+
+find the elements you're looking for with selectors
+
+ by text,  by xpath,  by id,  by LinkText, by Css
+
+
+id all the elements in our NerdDinner login...
+
+
+
+Step 3 - LOOK!
+
+identify the verification state, grab the 
+relevant info, and be assertive.
+
+
+
+32m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+c:\test\run
+
+
+
+38m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+Yeah, but....how do you organize things for anything 
+but a trivial example?!
+
+PageObjectPattern: http://code.google.com/p/selenium/wiki/PageObjects
+=> essentially think of a page as a "service", and hide away all the element-finding cruftiness 
+
+Good...but not great.  Many (most?) actions span multiple pages
+
+Eg:
+In our simple nerd dinner example, 3 pages (main, login, and register page) ... so where to put the "login" method...?  
+
+In an action!
+
+43m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+Concrete organization examples
+
+
+Browser util method
+
+	* encapsulates driver & driver instantiation
+
+
+
+
+Page classes
+
+	* gives only elements back to the actions
+	* hides element location logic (which will change) from the actions
+
+
+Action classes
+
+	* Actions reference pages
+	* decouples exact steps & order (which will change) from test
+
+	* complete, logical workflow pieces
+	* do just one thing, do it well
+	* BaseAction class gives extensibility for logging 
+
+
+
+
+55m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+What breaks, how to fix it
+
+
+
+giving the page more time to load...change default wait
+[add]
+
+what went wrong, adding screen capture + source dump
+[add]
+
+using log4net or log4j
+
+
+
+
+
+60m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+
+
+Browser idiosyncracies
+
+Firefox - some javascript events do not fire
+     if it's not the active window (has the focus)
+     (IE, Chrome do not have this problem)
+
+Chrome/IE => can't run multiple browsers at the 
+same time (only an issue with grid)
+
+Chrome & IE require special drivers for grid
+
+==>make sure you add wherever they are to the system path <==
+
+
+60m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+grid2 set up TIPS 
+
+
+Special considerations for grid running 1: keeping grid nodes up-to date
+
+slaves -> auto-login is handy...!
+http://channel9.msdn.com/Blogs/coolstuff/Tip-Auto-Login-Your-Windows-7-User-Account
+(note: this isn't a big security hole if they're headless VMs...as you have to log in ANYWAY via remote desktop)
+
+-->allows simple restart scripts 
+     (for /f %%f in (slavelist.txt) DO shutdown /r /t 5 /f %%f )
+-->need to remember to log in *as the test user*!
+-->using auto-login + service user, batch file fires o...script updates via svn then launches node
+[show]
+
+=>cd to grid dir, svn up, launch node
+
+
+60m****************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+*******************************************
+
+Special considerations for grid running 2: logging test results
+
+
+*maven doesn't show progress while test is running
+*if test takes 45 min...and all are failing, you don't know till it's done!
+*we use an internal tool...simple REST api client calls to server, logs results as they're done
+
+If a particular node has problems...how do you know?
+*identifying grid node that's running test 
+-->we use an internal tool that runs on all our gridnodes...simple .net service, returns computername + system info when called.
+-->test calls "localhost:7777/hostwatcherservice/getsysteminfo" and pulls our relevant data 
+[demo] 
+--> there is (supposedly) buried in selenium, an undocumented api for node name
+this way you know which node executed test...allows 
+
+
+*logging results from grid nodes
+
+Very dicey whether or not you can run multiple test instances on one node...
+
+Firefox issues
+--(issue#?), javascript "on focus" does not fire unless browser window has the focus
+
+Chrome, IE
+driver does not isolate test instance to it's own sandbox (profile) like firefox does
+
+
+maven parallelization (function of maven surefire plugin)
+-parallel mode of "methods" will parallelize by test method (eg: individual test)
+-parallel mode of "classes" will parallize by class...
+-->no guarantee of what order test methods will be run in!!
+
+*******************************************
+
+
+
+
+
