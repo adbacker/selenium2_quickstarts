@@ -1,4 +1,4 @@
-package com.mycompany.sample.tests.action;
+package com.mycompany.sample.tests.action.User;
 
 import com.mycompany.sample.tests.Action;
 import com.mycompany.sample.tests.Util.WebBrowser;
@@ -10,7 +10,7 @@ import com.mycompany.sample.tests.pages.RegisterPage;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 3:46 PM
  * To change this template use File | Settings | File Templates.
@@ -63,8 +63,8 @@ public class CreateUserAction extends Action {
     private boolean verify(String username)
     {
         String foundUser = mainPage.LoggedInUser();
-        //boolean success = username.equals(foundUser) && null != MainPage.LogOffLink();
-        boolean success = (null != mainPage.LogOffLink());
+        boolean success = username.equals(foundUser) && null != mainPage.LogOffLink();
+        //boolean success = (null != mainPage.LogOffLink());
         return success;
     }
 

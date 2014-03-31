@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 11:49 AM
  * To change this template use File | Settings | File Templates.
@@ -22,7 +22,7 @@ public class MainPage extends BasePage {
         _browser.go(Url);
     }
 
-    public String Url = "http://abacker:2000";
+    public String Url = "http://localhost:54836/";
 
     //find by link text
     public By LogOnLinkFindBy()
@@ -34,14 +34,29 @@ public class MainPage extends BasePage {
         return _browser.element(LogOnLinkFindBy());
     }
 
-    public By LogOffLinkFindBy()
+    public By RegisterLinkFindBy()
     {
+        return By.linkText("Register");
+    }
+    public WebElement RegisterLink()
+    {
+        return _browser.element(RegisterLinkFindBy());
+    }
+
+    public By LogOffLinkFindBy() {
         return By.linkText("Log Off");
     }
-    public WebElement LogOffLink()
-    {
+    public WebElement LogOffLink() {
         return _browser.element(LogOffLinkFindBy());
     }
+
+    public By HostDinnerFindBy() {
+        return By.linkText("Host Dinner");
+    }
+    public WebElement HostDinnerLink() {
+        return _browser.element(HostDinnerFindBy());
+    }
+
 
     //find by xpath
     public By WelcomeUserTextFindBy()

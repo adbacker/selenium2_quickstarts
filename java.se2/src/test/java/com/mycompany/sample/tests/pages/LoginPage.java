@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 11:49 AM
  * To change this template use File | Settings | File Templates.
@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
 
     public By usernameEntryFindBy()
     {
-        return By.id("username");
+        return By.id("UserName");
     }
 
     public WebElement txtUserName()
@@ -29,12 +29,10 @@ public class LoginPage extends BasePage {
         return _browser.element(usernameEntryFindBy());
     }
 
-    public By passwordEntryFindBy()
-    {
-        return By.id("password");
+    public By passwordEntryFindBy() {
+        return By.id("Password");
     }
-    public WebElement txtPasswordEntry()
-    {
+    public WebElement txtPasswordEntry() {
         return _browser.element(passwordEntryFindBy());
     }
 

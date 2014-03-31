@@ -53,10 +53,6 @@ recorder
 stopwatch (?)
 
 
-start vms & looping automation running
-4 remote consoles, mvn parallel tests
-
-
 *******************************************
 *******************************************
 *******************************************
@@ -65,8 +61,6 @@ start vms & looping automation running
 *******************************************
 *******************************************
 *******************************************
-
-What was *that?!*
 
 
 what is selenium
@@ -132,8 +126,8 @@ who I am
 bb.com automation, tools development
 
 helped design and implement automation infrastructure
-we run 3-400 tests covering use of site features, product ordering
-takes around 45m on a good day with grid ... 4h+ on a single box
+we run several thousand tests covering use of site features, product ordering
+takes around 20-40m on a 100 node grid ... more than a day on a single box
 
 
 
@@ -304,10 +298,20 @@ Step 2 - FIND!
 
 find the elements you're looking for with selectors
 
- by text,  by xpath,  by id,  by LinkText, by Css
+in order of (my) preference...
+by id
+by text,by xpath,by LinkText,by Css
 
+Remember...you're looking for something that's (ideally):
+1.) not subject to change (eg: element ID)
+2.) not brittle
+	==>	xpath is a last resort, but be careful as it can
+		break if elements move around the page
 
 id all the elements in our NerdDinner login...
+
+register button
+login button
 
 
 
@@ -461,7 +465,7 @@ http://channel9.msdn.com/Blogs/coolstuff/Tip-Auto-Login-Your-Windows-7-User-Acco
 -->allows simple restart scripts 
      (for /f %%f in (slavelist.txt) DO shutdown /r /t 5 /f %%f )
 -->need to remember to log in *as the test user*!
--->using auto-login + service user, batch file fires o...script updates via svn then launches node
+-->using auto-login + service user, batch file fires off...script updates via svn then launches node
 [show]
 
 =>cd to grid dir, svn up, launch node

@@ -1,8 +1,9 @@
-package com.mycompany.sample.tests;
+package com.mycompany.sample.tests.UserTests;
 
-import com.mycompany.sample.tests.action.CreateUserAction;
-import com.mycompany.sample.tests.action.LoginAction;
-import com.mycompany.sample.tests.action.LogoffAction;
+import com.mycompany.sample.tests.BaseTest;
+import com.mycompany.sample.tests.action.User.CreateUserAction;
+import com.mycompany.sample.tests.action.User.LoginAction;
+import com.mycompany.sample.tests.action.User.LogoffAction;
 import com.mycompany.sample.tests.model.User;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import java.util.UUID;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 4:13 PM
  * To change this template use File | Settings | File Templates.

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 3:20 PM
  * To change this template use File | Settings | File Templates.
@@ -19,19 +19,19 @@ public class RegisterPage extends BasePage {
     }
 
     public WebElement txtUsername() {
-        return _browser.element(By.id("username"));
+        return _browser.element(By.id("UserName"));
     }
     
     public WebElement txtPassword() {
-        return _browser.element(By.id("password"));
+        return _browser.element(By.id("Password"));
     }
     
     public WebElement txtConfirmPassword() {
-        return _browser.element(By.id("confirmPassword"));
+        return _browser.element(By.id("ConfirmPassword"));
     }
     
     public WebElement txtEmail() {
-        return _browser.element(By.id("email"));
+        return _browser.element(By.id("Email"));
     }
 
     public WebElement btnRegister() {

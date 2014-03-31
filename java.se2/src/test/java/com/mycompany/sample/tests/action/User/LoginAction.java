@@ -1,4 +1,4 @@
-package com.mycompany.sample.tests.action;
+package com.mycompany.sample.tests.action.User;
 
 import com.mycompany.sample.tests.Action;
 import com.mycompany.sample.tests.Util.WebBrowser;
@@ -8,7 +8,7 @@ import com.mycompany.sample.tests.pages.MainPage;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 3:34 PM
  * To change this template use File | Settings | File Templates.

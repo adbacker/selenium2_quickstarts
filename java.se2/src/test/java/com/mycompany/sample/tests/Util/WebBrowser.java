@@ -39,14 +39,14 @@ public class WebBrowser {
         WebDriver newDriver = null;
         //local chrome or firefox testing:
         //_driver = new InternetExplorerDriver();
-        //newDriver = new FirefoxDriver();
+        newDriver = new FirefoxDriver();
         //conventional - remoteWebDriver:
 //
-        try {
-            newDriver = new RemoteWebDriver(new URL(hubUrl), browserType);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+//        try {
+//            newDriver = new RemoteWebDriver(new URL(hubUrl), browserType);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//        }
 
         //using the Augmenter gives RemoteWebDriver the ability
         //to take screenshots...

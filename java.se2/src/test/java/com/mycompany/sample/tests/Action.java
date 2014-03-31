@@ -5,7 +5,7 @@ import com.mycompany.sample.tests.model.User;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 3:34 PM
  * To change this template use File | Settings | File Templates.

@@ -2,7 +2,7 @@ package com.mycompany.sample.tests.model;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/17/12
  * Time: 3:48 PM
  * To change this template use File | Settings | File Templates.

@@ -4,7 +4,7 @@ import com.mycompany.sample.tests.Util.WebBrowser;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/18/12
  * Time: 11:48 AM
  * To change this template use File | Settings | File Templates.

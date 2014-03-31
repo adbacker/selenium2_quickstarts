@@ -15,7 +15,7 @@ import java.net.UnknownHostException;
 
 /**
  * Created by IntelliJ IDEA.
- * User: aaron.backer
+ * UserUtil: aaron.backer
  * Date: 3/13/12
  * Time: 2:12 PM
  * To change this template use File | Settings | File Templates.

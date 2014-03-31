@@ -1,8 +1,11 @@
-package com.mycompany.sample.tests;
+package com.mycompany.sample.tests.UserTests;
 
-import com.mycompany.sample.tests.action.LoginAction;
+import com.mycompany.sample.tests.BaseTest;
+import com.mycompany.sample.tests.Util.UserUtil;
+import com.mycompany.sample.tests.action.User.CreateUserAction;
+import com.mycompany.sample.tests.action.User.LoginAction;
+import com.mycompany.sample.tests.action.User.LogoffAction;
 import com.mycompany.sample.tests.model.User;
-import com.mycompany.sample.tests.pages.LoginPage;
 import org.apache.log4j.Logger;
 import org.junit.*;
 
@@ -12,16 +15,19 @@ public class LoginTests extends BaseTest {
     @Test
     public void testLogin1()
     {
-        User user = new User("test002","pass002","test002@mailinator.com");
-        LoginAction loginAction = new LoginAction(Browser,user);
-        boolean loginSuccess = loginAction.execute();
-        Assert.assertTrue(loginSuccess);
-    }
+        String username = UserUtil.RandomUserid();
+        String password = "pass123";
+        User user = new User(username,password,username + "@mailinator.com");
+        //create the user first
+        CreateUserAction cua = new CreateUserAction(Browser,user);
+        LogoffAction loa = new LogoffAction(Browser);
 
-    @Test
-    public void testLogin2()
-    {
-        User user = new User("test002","pass002","test002@mailinator.com");
+        //notice we don't check the results of the create or log off -- we assume
+        //they're successfull because they're checked elsewhere
+        cua.execute();
+        loa.execute();
+
+        //then log in as that user
         LoginAction loginAction = new LoginAction(Browser,user);
         boolean loginSuccess = loginAction.execute();
         Assert.assertTrue(loginSuccess);
