@@ -34,6 +34,7 @@ public class BaseTest {
 
     @BeforeClass
     public static void classSetup() {
+        //tell log4j to get on the ball
         BasicConfigurator.configure();
 
     }

@@ -1,0 +1,11 @@
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\obj\Debug\se2.dotnet.minimal.csprojResolveAssemblyReference.cache
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\se2.dotnet.minimal.dll
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\se2.dotnet.minimal.pdb
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\nunit.framework.dll
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\WebDriver.dll
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\WebDriver.Support.dll
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\nunit.framework.xml
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\WebDriver.xml
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\bin\Debug\WebDriver.Support.xml
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\obj\Debug\se2.dotnet.minimal.dll
+C:\Users\aaron\Documents\GitHub\selenium2_quickstarts\dotnet.se2.minimal\obj\Debug\se2.dotnet.minimal.pdb

@@ -26,45 +26,9 @@ public class UserTests extends BaseTest {
         User user = new User(randomUserName,"pass123",randomUserName + "@mailinator.com");
         CreateUserAction cuAction = new CreateUserAction(Browser,user);
 
-        boolean success = cuAction.execute();
-        Assert.assertTrue("createUser failed", success);
+        boolean createUserResult = cuAction.execute();
+        Assert.assertTrue("createUser failed", createUserResult);
     }
-
-
-    @Test
-    public void testCreateUser1() {
-
-        String randomUserName = "usr" + UUID.randomUUID().toString().substring(0, 10).replace("-", "");
-        User user = new User(randomUserName,"pass123",randomUserName + "@mailinator.com");
-        CreateUserAction cuAction = new CreateUserAction(Browser,user);
-
-        boolean success = cuAction.execute();
-        Assert.assertTrue("createUser failed", success);
-    }
-
-
-    @Test
-    public void testCreateUser2() {
-
-        String randomUserName = "usr" + UUID.randomUUID().toString().substring(0, 10).replace("-", "");
-        User user = new User(randomUserName,"pass123",randomUserName + "@mailinator.com");
-        CreateUserAction cuAction = new CreateUserAction(Browser,user);
-
-        boolean success = cuAction.execute();
-        Assert.assertTrue("createUser failed", success);
-    }
-
-    @Test
-    public void testCreateUser3() {
-
-        String randomUserName = "usr" + UUID.randomUUID().toString().substring(0, 10).replace("-", "");
-        User user = new User(randomUserName,"pass123",randomUserName + "@mailinator.com");
-        CreateUserAction cuAction = new CreateUserAction(Browser,user);
-
-        boolean success = cuAction.execute();
-        Assert.assertTrue("createUser failed", success);
-    }
-
 
 
     @Test

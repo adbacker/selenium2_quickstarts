@@ -29,8 +29,8 @@ public class LoginTests extends BaseTest {
 
         //then log in as that user
         LoginAction loginAction = new LoginAction(Browser,user);
-        boolean loginSuccess = loginAction.execute();
-        Assert.assertTrue(loginSuccess);
+        boolean loginResult = loginAction.execute();
+        Assert.assertTrue("login test fail",loginResult);
     }
 
 

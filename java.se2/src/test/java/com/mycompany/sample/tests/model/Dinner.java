@@ -7,6 +7,11 @@ public class Dinner {
 
     private String title;
     private String dinnerDate;
+    private String description;
+    private String hostName;
+    private String contactInfo;
+    private String address;
+    private String country;
 
     public String getTitle() {
         return title;
@@ -64,9 +69,5 @@ public class Dinner {
         this.country = country;
     }
 
-    private String description;
-    private String hostName;
-    private String contactInfo;
-    private String address;
-    private String country;
+
 }

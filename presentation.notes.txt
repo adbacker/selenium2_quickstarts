@@ -238,10 +238,6 @@ new c# file, name it "xxxTest.cs"
 *******************************************
 
 
-How we gonna do it?
-
-Break it down
-http://bit.ly/Af6byp
 
 in a test's simplest form...
 
@@ -279,7 +275,7 @@ driver.Url = "http://where.you.be.goin.com/";
 driver.Navigate;
 
 //our sample code..
-driver.Url = "http://abacker:2000"
+driver.Url = "http://localhost:50799/"
 driver.Navigate
 
 
@@ -333,6 +329,17 @@ relevant info, and be assertive.
 
 
 c:\test\run
+
+Notes...
+
+1.) need to quit the driver @ the end of the test (cleanup!)
+2.) driver will throw an exception if it can't find an element, ending the test,
+	so rccd putting the driver.Quit() into a cleanup method
+3.) Notice...we're logging in repeatedly.  Without logging out.
+In *this* case it's because the app's cookie dropping isn't working
+
+BUT...Selenium will launch Firefox and Chrome in their own sandbox user profiles.  
+Which means once the driver is torn down, no state persists!
 
 
 

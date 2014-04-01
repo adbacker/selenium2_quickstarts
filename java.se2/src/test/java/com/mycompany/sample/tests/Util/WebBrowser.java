@@ -2,6 +2,7 @@ package com.mycompany.sample.tests.Util;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 //import org.openqa.selenium.ie.InternetExplorerDriver;
 
+//wraps our webdriver instance and gives us some niceties
 public class WebBrowser {
 
     //log4j magic:
@@ -23,24 +25,14 @@ public class WebBrowser {
     private WebDriver _driver = null;
 
 
-
-    //stuff for grid...ignore it if you're not gridding
-    ;
-    private final static String defaultSeleniumHost="192.168.56.200";
-    private static String seleniumHost;
-    private static int seleniumPort = 4445;
-    public static final DesiredCapabilities browserType = DesiredCapabilities.firefox();
-
     private WebDriver newDriver() {
-        seleniumHost = getSetting("seleniumHost",defaultSeleniumHost);
-        String hubUrl = String.format("http://%s:%d/wd/hub",seleniumHost,seleniumPort);
 
-
-        WebDriver newDriver = null;
-        //local chrome or firefox testing:
+        //local IE, chrome or firefox testing:
         //_driver = new InternetExplorerDriver();
-        newDriver = new FirefoxDriver();
-        //conventional - remoteWebDriver:
+        _driver = new FirefoxDriver();
+        _driver = new ChromeDriver("c:\grid2");
+
+        // - remoteWebDriver:
 //
 //        try {
 //            newDriver = new RemoteWebDriver(new URL(hubUrl), browserType);
