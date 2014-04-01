@@ -1,0 +1,1 @@
+E:\Documents\selenium2_quickstarts\dotnet.se2\se2demo\obj\Debug\se2demo.csprojResolveAssemblyReference.cache

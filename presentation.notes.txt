@@ -218,8 +218,8 @@ Let's get coding....
 
 
 New c# *class* project
-Add se2 via nuget (http://nuget.org/)  
-->se2 web driver, not the older "selenium r/c"
+Add selenium 2 via nuget (http://nuget.org/)  
+->selenium 2 web driver, not the older "selenium r/c"
 Add nunit via nuget
 
 
@@ -306,6 +306,9 @@ Remember...you're looking for something that's (ideally):
 
 id all the elements in our NerdDinner login...
 
+Log On link
+username text entry
+password text entry
 register button
 login button
 
@@ -341,6 +344,16 @@ In *this* case it's because the app's cookie dropping isn't working
 BUT...Selenium will launch Firefox and Chrome in their own sandbox user profiles.  
 Which means once the driver is torn down, no state persists!
 
+ok, now we're at the end state...what do we look for to verify?
+
+Log off button!
+
+<spoiler> but...it's there, and the selector is right, what's going on ?! </spoiler>
+
+Selenium can be a little too quick on the draw...looks for things and (by default) if they're not 
+there RIGHT NOW, throws an error.
+
+Tell se to *wait* for up to XX seconds before erroring out.
 
 
 38m****************************************
