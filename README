@@ -1,4 +1,4 @@
-Boise Code Camp 2012 - selenium 2 intro session
+Boise Code Camp 2014 - selenium 2 intro session
 sample code
 aaron backer
 
@@ -20,4 +20,3 @@ Easiest way to get NerdDinner running locally for testing: (assuming a windows h
 ->visit your tame nerd dinner site and verify things are working as expected
 4.) Modify the selenium code in the Browser class to point at your local (verified working) nerd dinner site
 
-(note that to use selenium 2 grid, you'll need to set up that infrastructure separatly)
