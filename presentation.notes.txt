@@ -17,7 +17,8 @@ can drive chrome, firefox, IE and (yes, hold yourself down) OPERA!!
 
 selenium grid 2 http://code.google.com/p/selenium/wiki/Grid2
 
-chrome driver location (chromedriver.exe, required to test chrome via grid) http://code.google.com/p/selenium/wiki/ChromeDriver
+chrome driver location (chromedriver.exe, required to test chrome via grid)
+ http://code.google.com/p/selenium/wiki/ChromeDriver
 
 Firebug for Firefox ( http://getfirebug.com )
 
@@ -93,23 +94,19 @@ client languages develop-able in: java, c#, ruby, python, perl, php!
 who are *you*?
 ->devs?
 ->qa automation/sdets?
-->primarily qa manual?
-->other? (managers? 
+->other qa engineering?
+->none of the above? (managers? curious?) 
 
+languages
 java?  c#?  other?
 
-how many have used selenium before?
-another automated test tool?
+how many of you have used an automation tool before?
+record/playback, anything..?
+(examples?)
 
 visualtest
 loadrunner
 opensta
-
-
-Gauge interest in..."how many here for:"
-selenium 101?
-grid?
-selenium with continuous integration?
 
 
 10m*****************************************
@@ -123,12 +120,13 @@ selenium with continuous integration?
 
 
 who I am
-bb.com automation, tools development
+bodybuilding.com performance tools, qa automation, tools development
 
 helped design and implement automation infrastructure
 we run several thousand tests covering use of site features, product ordering
 takes around 20-40m on a 100 node grid ... more than a day on a single box
-
+also use a selenium grid hosted in AWS (Amazon Web Services) to do load testing
+using the same selenium tests
 
 
 11m****************************************
@@ -149,15 +147,11 @@ how to write a basic test using nunit
 => identify elements
 => interact with elements
 => verify test success/failure
-=> some general "good ideas" in test design (page object pattern)
 
-=> how to set up a basic selenium 2 grid
-=> how to modify your tests to run against the se2 grid
-
+=> refactor basics into a workable "good ideas" test design
 
 
 yes, you can! (set up a basic test, start automating without
-
 record/playback...)
 
 
@@ -183,6 +177,7 @@ use source control!
 control feature creep!
 there WILL be bugs!
 
+treat it like development and you'll be much happier
 
 15m****************************************
 *******************************************
